@@ -1,0 +1,37 @@
+package com.generation.farmacia.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "tb_produtos")
+
+public class Produto {
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@NotBlank(message = "nome é um campo obrigatório")
+	private String nome;
+
+	@NotBlank(message = "marca é um campo obrigatório")
+	private String marca;
+	
+	@NotNull(message = "principio ativo é um campo obrigatorio")
+	private String principioAtivo;
+	
+	@Size(max = 1000, message = "máximo de 1000 caracteres")
+	private String foto;
+	
+	@NotBlank(message = "preço é um campo obrigatório")
+	private double preco;
+	
+	
+	
+	
+}
