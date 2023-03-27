@@ -12,74 +12,86 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-	@Entity
-	@Table(name = "tb_produtos")
-	public class Produto {
+@Entity
+@Table(name = "tb_produtos")
+public class Produto {
 
-		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long id;
-		
-		@NotBlank(message = "O atributo nome é obrigatório!")
-		private String nome;
-		
-		@NotBlank(message = "O atributo estudio é obrigatório!")
-		private String estudio;
-		
-		private BigDecimal preco;
-		
-		@NotBlank(message = "O atributo console é obrigatório!")
-		private String console;
-		
-		@ManyToOne
-		@JsonIgnoreProperties("produto")
-		private Categoria categoria;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-		public Long getId() {
-			return id;
-		}
+	@NotBlank(message = "O atributo nome é obrigatório!")
+	private String nome;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	@NotBlank(message = "O atributo estudio é obrigatório!")
+	private String estudio;
 
-		public String getNome() {
-			return nome;
-		}
+	private BigDecimal preco;
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+	@NotBlank(message = "O atributo console é obrigatório!")
+	private String console;
 
-		public String getEstudio() {
-			return estudio;
-		}
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Categoria categoria;
 
-		public void setEstudio(String estudio) {
-			this.estudio = estudio;
-		}
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 
-		public BigDecimal getPreco() {
-			return preco;
-		}
+	public Usuario getUsuario() {
+		return usuario;
+	}
 
-		public void setPreco(BigDecimal preco) {
-			this.preco = preco;
-		}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
-		public String getConsole() {
-			return console;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public void setConsole(String console) {
-			this.console = console;
-		}
-		
-		public Categoria getCategoria() {
-			return categoria;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public void setCategoria(Categoria categoria) {
-			this.categoria = categoria;
-		}
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEstudio() {
+		return estudio;
+	}
+
+	public void setEstudio(String estudio) {
+		this.estudio = estudio;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	public String getConsole() {
+		return console;
+	}
+
+	public void setConsole(String console) {
+		this.console = console;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 }
